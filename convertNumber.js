@@ -1,19 +1,27 @@
 // jangan lupa baca README.md ya juri hehe:)
 // maaf ya juri tidak fasih bahasa inggris jadinya campur campur
 
-function convertNumber(valueFrom, form, to){
+function convertNumber(valueFrom, from, to){
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
   let output = `<h3>Hasil konversi dari ${from.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
+  if (from === "desimal") {
+    if (to === "desimal") {
+      output += valueFrom.toLocaleString('in-ID');
+    }
+    if (to === "biner") {
+      output += valueFrom.toLocaleString(2);
+    }
+  }
   return output
 }
 
 //membuat fungsi print untuk menampilkan ke html
 function printInput() {
-  let from = document.getElementById("form").value;
+  let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
-  console.log(form);
+  console.log(from);
   document.getElementById("input-group").innerHTML = `
-         <input type="number" name="valueFrom" id="startRange" placeholder="nilai ${from}" oninput="print()"/>
+         <input type="number" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
   `
 }
 function print() {
@@ -21,6 +29,6 @@ function print() {
   let valueFrom = document.getElementById("valueFrom").value;
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
-  let value = convertNumber(Number(valueFrom),Number(from),Number(to))
+  let value = convertNumber(Number(valueFrom) ,from ,to)
   document.getElementById("output").innerHTML = `${value}`;
 }
