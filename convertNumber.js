@@ -3,7 +3,7 @@
 
 function convertNumber(valueFrom, form, to){
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
-  let output = `<h3>Bilangan prima antara ${startRange.toLocaleString()} dan ${endRange.toLocaleString()} adalah :</h3>`;
+  let output = `<h3>Hasil konversi dari ${from.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
   return output
 }
 
