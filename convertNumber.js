@@ -35,6 +35,14 @@ function numberFormatID(input){
   input.value = formatNumber;
 }
 //membuat fungsi print untuk menampilkan ke html
+function printInput() {
+  let from = document.getElementById("form").value;
+  let to = document.getElementById("to").value;
+  console.log(form);
+  document.getElementById("input-group").innerHTML = `
+         <input type="number" name="valueFrom" id="startRange" placeholder="nilai ${from}" oninput="print()"/>
+  `
+}
 function print() {
   // mengambil nilai input rentang awal
   let startRange = document.getElementById("startRange").value;
