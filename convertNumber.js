@@ -45,8 +45,9 @@ function printInput() {
 }
 function print() {
   // mengambil nilai input rentang awal
-  let startRange = document.getElementById("startRange").value;
-  let endRange = document.getElementById("endRange").value;
+  let valueFrom = document.getElementById("valueFrom").value;
+  let from = document.getElementById("from").value;
+let to = document.getElementById("to").value;
   //kita hilangkan titiknya agar tidak di baca desimal;)
   if (startRange.indexOf(".") !== -1) {
     startRange = startRange.replace(".","")
