@@ -6,6 +6,15 @@
   font-family: 'Montserrat', sans-serif;
   color: rgba(0,0,0,.8);
 }
+select{
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 15px;
+}
+#option{
+  text-align: center;
+}
 body{
   margin: auto;
   background-color: rgba(0,0,0,.8);
