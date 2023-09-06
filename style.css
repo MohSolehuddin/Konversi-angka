@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(0,0,0,.8);
+}
+body{
+  margin: auto;
+  background-color: rgba(0,0,0,.8);
+}
+.background{
+  height: 300px;
+  background-color: aqua;
+}
+.container{
+  border-radius: 25px;
+  min-height: 90vh;
+  margin: auto 25px;
+  margin-top: -250px;
+  padding: 20px;
+  background-color: rgb(250,250,250);
+  border: .01px solid black;
+  margin-bottom: 50px;
+}
+.input-group{
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+.input-group input{
+  display: flex;
+  margin-right: 20px;
+  width: 32%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px ;
+  background-color: rgba(0,0,0, .8);
+  color: aqua;
+}
+.input-group button{
+  width: 70px;
+  border-radius: 10px;
+  color: rgba(0,0,0, .8);
+  background-color: rgb(250,250,250);
+  font-style: bold;
+}
+input:focus{
+  background-color: aqua;
+  color: rgba(0,0,0,.8);
+  cursor: pointer;
+  transition: .1s;
+}
+button:focus{
+  background-color: aqua;
+  color: rgba(0,0,0,.8);
+  cursor: pointer;
+  transition: .1s;
+}
+::placeholder{
+  color: aqua;
+  font-style: italic;
+  opacity: .7;
+  font-size: 13px;
+}
+#output {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+h1{
+  text-align: center;
+}
+p{
+  font-size: 15px;
+}
+
+@media (min-width: 700px){
+  .background{
+    height: 50vh;
+  }
+  .container{
+    max-width: 600px;
+    margin: auto;
+    margin-top: -25vh;
+    min-height: 50vh;
+  }
+  ::placeholder{
+    font-size: 15px;
+  }
+}
