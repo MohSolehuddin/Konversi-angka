@@ -13,17 +13,23 @@
     <div class="container">
       <h1>
         KONVERSI BILANGAN
+      </h1>
+      <div id="option">
         <select name="form" id="form" onchange="print()">
           <option value="desimal">desimal</option>
           <option value="biner">biner</option>
-          <option value="hexa">hexadesimal</option>
+          <option value="hexa">hexa</option>
           <option value="octa">octa</option>
         </select>
-      </h1>
-      <div class="input-group">
-        <input type="number" name="startRange" id="startRange" placeholder="rentang awal" oninput="numberFormatID(this)"/>
-        <input type="number" name="endRange" id="endRange" placeholder="rentang akhir" oninput="numberFormatID(this)"/>
-        <button type="submit" onclick="print()">CARI</button>
+        KE
+        <select name="form" id="form" onchange="print()">
+          <option value="biner">biner</option>
+          <option value="hexa">hexa</option>
+          <option value="octa">octa</option>
+          <option value="desimal">desimal</option>
+        </select>
+      </div>
+      <div class="input-group" id="input-group">
       </div>
       <div id="output">
       </div>
