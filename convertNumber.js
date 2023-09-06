@@ -9,7 +9,7 @@ function convertNumber(valueFrom, from, to){
       output += valueFrom.toLocaleString('in-ID');
     }
     if (to === "biner") {
-      output += valueFrom.toLocaleString(2);
+      output += valueFrom.toString(2).toLocaleString('in-ID');
     }
   }
   return output
