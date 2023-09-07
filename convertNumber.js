@@ -43,28 +43,32 @@ function convertNumber(valueFrom, from, to){
       output += parseInt(valueFrom, 16);
     }
     if (to === "biner") {
-      output += valueFrom.toString(2).toLocaleString('in-ID');
+      let desimal = parseInt(valueFrom,16);
+      output += desimal.toString(2).toLocaleString('in-ID');
     }
     if (to === "hexa") {
-      output += valueFrom.toString(16).toLocaleString('in-ID');
+      output += valueFrom;
     }
     if (to === "octa") {
-      output += valueFrom.toString(8).toLocaleString('in-ID');
+      let desimal = parseInt(valueFrom,16);
+      output += desimal.toString(8).toLocaleString('in-ID');
     }
   }
   // octa to
   if (from === "octa") {
     if (to === "desimal") {
-      output += valueFrom.toLocaleString('in-ID');
+      output += parseInt(valueFrom, 8);
     }
     if (to === "biner") {
-      output += valueFrom.toString(2).toLocaleString('in-ID');
+      let desimal = parseInt(valueFrom,8);
+      output += desimal.toString(2).toLocaleString('in-ID');
     }
     if (to === "hexa") {
-      output += valueFrom.toString(16).toLocaleString('in-ID');
+      let desimal = parseInt(valueFrom,8);
+      output += desimal.toString(16).toLocaleString('in-ID');
     }
     if (to === "octa") {
-      output += valueFrom.toString(8).toLocaleString('in-ID');
+      output += valueFrom;
     }
   }
   return output
