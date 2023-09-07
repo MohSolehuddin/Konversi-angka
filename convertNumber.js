@@ -4,7 +4,8 @@
 //membuat fungsi convertFromDesimal
 function convertNumber(valueFrom, from, to){
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
-  let output = `<h3>Hasil konversi dari ${from.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
+  let output = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
+  //desimal to
   if (from === "desimal") {
     if (to === "desimal") {
       output += valueFrom.toLocaleString('in-ID');
@@ -16,18 +17,23 @@ function convertNumber(valueFrom, from, to){
       output += valueFrom.toString(16).toLocaleString('in-ID');
     }
     if (to === "octa") {
-      output += valueFrom.toString().toLocaleString('in-ID');
+      output += valueFrom.toString(8).toLocaleString('in-ID');
     }
   }
   // biner to
   if (from === "biner") {
+    if (valueFrom > 1) {
+      alert(`tolong masukan angka ${to} yang benar!!!`)
+    }
     if (to === "desimal") {
-      output += valueFrom.toLocaleString('in-ID');
+      output += parseInt(valueFrom,2).toLocaleString('in-ID');
     }
     if (to === "biner") {
-      output += valueFrom.toString(2).toLocaleString('in-ID');
+      let desimal = parseInt(valueFrom,2);
+      output += desimal.toString(8).toLocaleString('in-ID');
     }
     if (to === "hexa") {
+      let desimal = parseInt(valueFrom,2);
       output += valueFrom.toString(16).toLocaleString('in-ID');
     }
     if (to === "octa") {
