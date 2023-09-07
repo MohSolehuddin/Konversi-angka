@@ -11,7 +11,7 @@ function convertNumber(valueFrom, from, to){
       output += valueFrom.toLocaleString('in-ID');
     }
     if (to === "biner") {
-      output += valueFrom.toString(2).toLocaleString('in-ID');
+      output += Number(valueFrom).toString(2).toLocaleString('in-ID');
     }
     if (to === "hexa") {
       output += valueFrom.toString(16).toLocaleString('in-ID');
