@@ -22,8 +22,8 @@ function convertNumber(valueFrom, from, to){
   }
   // biner to
   if (from === "biner") {
-    if (valueFrom > 1) {
-      alert(`tolong masukan angka ${to} yang benar!!!`)
+    if (valueFrom.indexOf(2)) {
+      alert(`tolong masukan angka ${to} yang benar!!!`);
     }
     if (to === "desimal") {
       output += parseInt(valueFrom,2).toLocaleString('in-ID');
