@@ -93,6 +93,6 @@ function print() {
   let valueFrom = document.getElementById("valueFrom").value;
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
-  let value = convertNumber(Number(valueFrom) ,from ,to)
+  let value = convertNumber(valueFrom ,from ,to)
   document.getElementById("output").innerHTML = `${value}`;
 }
