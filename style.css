@@ -7,6 +7,7 @@
   color: rgba(0,0,0,.8);
 }
 select{
+  margin-top: 10px;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
