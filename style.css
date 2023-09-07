@@ -44,7 +44,7 @@ body{
   height: 40px;
   padding: 15px;
   border-radius: 10px ;
-  background-color: rgba(0,0,0, .8);
+  background-color: #e8e6e1;
   color: aqua;
 }
 .input-group button{
@@ -55,8 +55,8 @@ body{
   font-style: bold;
 }
 input:focus{
-  background-color: aqua;
-  color: rgba(0,0,0,.8);
+  background-color:#524e4e ;
+  color: white;
   cursor: pointer;
   transition: .1s;
 }
@@ -67,10 +67,14 @@ button:focus{
   transition: .1s;
 }
 ::placeholder{
-  color: aqua;
+  color: #878684 ;
   font-style: italic;
   opacity: .7;
   font-size: 13px;
+  
+}
+::placeholder:focus{
+  color: white;
 }
 #output {
   display: flex;
