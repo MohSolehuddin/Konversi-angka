@@ -79,6 +79,11 @@ function printInput() {
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
   console.log(from);
+  if (from === "hexa") {
+    document.getElementById("input-group").innerHTML = `
+         <input type="text" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
+  `
+  }
   document.getElementById("input-group").innerHTML = `
          <input type="number" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
   `
