@@ -83,10 +83,10 @@ function printInput() {
     document.getElementById("input-group").innerHTML = `
          <input type="text" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
   `
-  }
+  }else{
   document.getElementById("input-group").innerHTML = `
          <input type="number" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
-  `
+  `}
 }
 function print() {
   // mengambil nilai input rentang awal
