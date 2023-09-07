@@ -22,15 +22,11 @@ function convertNumber(valueFrom, from, to){
   }
   // biner to
   if (from === "biner") {
-    if (valueFrom.indexOf(2)) {
-      alert(`tolong masukan angka ${to} yang benar!!!`);
-    }
     if (to === "desimal") {
       output += parseInt(valueFrom,2).toLocaleString('in-ID');
     }
     if (to === "biner") {
-      let desimal = parseInt(valueFrom,2);
-      output += desimal.toString(8).toLocaleString('in-ID');
+      output += valueFrom.toLocaleString('in-ID');
     }
     if (to === "hexa") {
       let desimal = parseInt(valueFrom,2);
