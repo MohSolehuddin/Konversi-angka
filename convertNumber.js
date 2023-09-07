@@ -1,6 +1,12 @@
 // jangan lupa baca README.md ya juri hehe:)
 // maaf ya juri tidak fasih bahasa inggris jadinya campur campur
 
+//membuat fungsi convertFromDesimal
+function convertFromDesimal(value, jumlah) {
+  if (to === value) {
+      output += valueFrom.toString(jumlah).toLocaleString('in-ID');
+    }
+}
 function convertNumber(valueFrom, from, to){
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
   let output = `<h3>Hasil konversi dari ${from.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
@@ -14,6 +20,7 @@ function convertNumber(valueFrom, from, to){
     if (to === "hexa") {
       output += valueFrom.toString(16).toLocaleString('in-ID');
     }
+    convertFromDesimal("octa",8);
   }
   return output
 }
