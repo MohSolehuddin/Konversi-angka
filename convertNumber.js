@@ -1,22 +1,23 @@
-// jangan lupa baca README.md ya juri hehe:)
-// maaf ya juri tidak fasih bahasa inggris jadinya campur campur
-
-//membuat fungsi convertFromDesimal
+//membuat fungsi convertNumber menerima 3 parameter valueFrom untuk nilai input dari user, from dan to yaitu dari apa ke apa
 function convertNumber(valueFrom, from, to){
+  // rubah ke number
+  valueFrom = Number(valueFrom);
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
   let output = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
+  
+  //cegat terlebih terlebih dahulu jika di konvert dari basis yang sama
+  if (from === to) {
+    output += valueFrom.toLocaleString('in-id');
+  }
   //desimal to
   if (from === "desimal") {
-    if (to === "desimal") {
-      output += valueFrom.toLocaleString('in-ID');
-    }
     if (to === "biner") {
-      output += Number(valueFrom).toString(2).toLocaleString('in-ID');
+      output += valueFrom.toString(2).toLocaleString('in-ID');
     }
     if (to === "hexa") {
       output += valueFrom.toString(16).toLocaleString('in-ID');
     }
-    if (to === "octa") {
+    if(to === "octa") {
       output += valueFrom.toString(8).toLocaleString('in-ID');
     }
   }
@@ -24,9 +25,6 @@ function convertNumber(valueFrom, from, to){
   if (from === "biner") {
     if (to === "desimal") {
       output += parseInt(valueFrom,2).toLocaleString('in-ID');
-    }
-    if (to === "biner") {
-      output += valueFrom.toLocaleString('in-ID');
     }
     if (to === "hexa") {
       let desimal = parseInt(valueFrom,2);
@@ -46,9 +44,6 @@ function convertNumber(valueFrom, from, to){
       let desimal = parseInt(valueFrom,16);
       output += desimal.toString(2).toLocaleString('in-ID');
     }
-    if (to === "hexa") {
-      output += valueFrom;
-    }
     if (to === "octa") {
       let desimal = parseInt(valueFrom,16);
       output += desimal.toString(8).toLocaleString('in-ID');
@@ -66,9 +61,6 @@ function convertNumber(valueFrom, from, to){
     if (to === "hexa") {
       let desimal = parseInt(valueFrom,8);
       output += desimal.toString(16).toLocaleString('in-ID');
-    }
-    if (to === "octa") {
-      output += valueFrom;
     }
   }
   return output
@@ -88,6 +80,7 @@ function printInput() {
          <input type="number" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
   `}
 }
+
 function print() {
   // mengambil nilai input rentang awal
   let valueFrom = document.getElementById("valueFrom").value;
