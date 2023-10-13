@@ -15,56 +15,68 @@ function convertNumber(valueFrom, from, to){
    //desimal to
     if (from === "desimal") {
       if (to === "biner") {
-        output += valueFrom.toString(2).toLocaleString('in-ID');
+        // output += 
+        return valueFrom.toString(2).toLocaleString('in-ID');
       }
       if (to === "hexa") {
-        output += valueFrom.toString(16).toLocaleString('in-ID');
+        // output += 
+        return valueFrom.toString(16).toLocaleString('in-ID');
       }
       if(to === "octa") {
-        output += valueFrom.toString(8).toLocaleString('in-ID');
+        // output +=
+        return valueFrom.toString(8).toLocaleString('in-ID');
       }
     }
     // biner to
     if (from === "biner") {
       if (to === "desimal") {
-        output += parseInt(valueFrom,2).toLocaleString('in-ID');
+        // output += 
+        return parseInt(valueFrom,2).toLocaleString('in-ID');
       }
       if (to === "hexa") {
         let desimal = parseInt(valueFrom,2);
-        output += desimal.toString(16).toLocaleString('in-ID');
+        // output += 
+        return desimal.toString(16).toLocaleString('in-ID');
       }
       if (to === "octa") {
         let desimal = parseInt(valueFrom,2);
-        output += desimal.toString(8).toLocaleString('in-ID');
+        // output += 
+        return desimal.toString(8).toLocaleString('in-ID');
       }
     }
     // octa to
     if (from === "octa") {
       if (to === "desimal") {
-        output += parseInt(valueFrom, 8);
+        // output += 
+        return parseInt(valueFrom, 8);
       }
       if (to === "biner") {
         let desimal = parseInt(valueFrom,8);
-        output += desimal.toString(2).toLocaleString('in-ID');
+        // output += 
+        return desimal.toString(2).toLocaleString('in-ID');
       }
       if (to === "hexa") {
         let desimal = parseInt(valueFrom,8);
-        output += desimal.toString(16).toLocaleString('in-ID');
+        // output +=
+        return desimal.toString(16).toLocaleString('in-ID');
       }
     }
   } else {
    //hexa to
     if (from === "hexa") {
       if (to === "desimal") {
-        output += parseInt(valueFrom, 16);
+        // output += 
+        return parseInt(valueFrom, 16);
       }
       if (to === "biner") {
         let desimal = parseInt(valueFrom,16);
-        output += desimal.toString(2).toLocaleString('in-ID');
+        // output += 
+        return desimal.toString(2).toLocaleString('in-ID');
       }
       if (to === "octa") {
         let desimal = parseInt(valueFrom,16);
-        output += desimal.toString(8).toLocaleString('in-ID');
+        // output += 
+        return desimal.toString(8).toLocaleString('in-ID');
       }
     } 
   }
@@ -75,7 +87,7 @@ function convertNumber(valueFrom, from, to){
 function printInput() {
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
-  console.log(from);
+  
   if (from === "hexa") {
     document.getElementById("input-group").innerHTML = `
          <input type="text" name="valueFrom" id="valueFrom" placeholder="masukkan nilai ${from}" oninput="print()"/>
@@ -93,7 +105,7 @@ function print() {
   let to = document.getElementById("to").value;
   let value = convertNumber(valueFrom ,from ,to);
   console.log(value);
-  if (value === NaN) {
+  if (value === "NaN") {
     if (from === "biner") {
       document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 2 yang terdiri dari: 0 dan 1 `;
     } else if (from === "hexa"){
@@ -102,6 +114,6 @@ function print() {
       document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 8 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, dan 7 `;
     }
   }else{
-   document.getElementById("output").innerHTML = `${value}`; 
+   document.getElementById("output").innerHTML = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3> ${value}`; 
   }
 }
