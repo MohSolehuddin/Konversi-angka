@@ -105,13 +105,13 @@ function print() {
   let to = document.getElementById("to").value;
   let value = convertNumber(valueFrom ,from ,to);
   console.log(value);
-  if (value === "NaN") {
+  if (value === "NaN" ) {
     if (from === "biner") {
-      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 2 yang terdiri dari: 0 dan 1 `;
+      document.getElementById("output").innerHTML = `<h3 class="danger">Maaf data yang anda input bukanlah bilangan ${from}, bilangan ${from} hanya memiliki basis 2 yang terdiri dari: 0 dan 1 </h3>`;
     } else if (from === "hexa"){
-      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 16 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, dan e `;
+      document.getElementById("output").innerHTML = `<h3 class="danger">Maaf data yang anda input bukanlah bilangan ${from}, bilangan ${from} hanya memiliki basis 16 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, dan e </h3>`;
     }else {
-      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 8 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, dan 7 `;
+      document.getElementById("output").innerHTML = `<h3 class="danger">Maaf data yang anda input bukanlah bilangan ${from}, bilangan ${from} hanya memiliki basis 8 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, dan 7 </h3>`;
     }
   }else{
    document.getElementById("output").innerHTML = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3> ${value}`; 

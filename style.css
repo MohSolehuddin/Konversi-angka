@@ -84,6 +84,9 @@ h1{
 p{
   font-size: 15px;
 }
+h3.danger{
+  color: red;
+}
 
 @media (min-width: 700px){
   .background{
