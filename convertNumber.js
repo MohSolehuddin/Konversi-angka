@@ -1,67 +1,72 @@
 //membuat fungsi convertNumber menerima 3 parameter valueFrom untuk nilai input dari user, from dan to yaitu dari apa ke apa
 function convertNumber(valueFrom, from, to){
-  // rubah ke number
-  valueFrom = Number(valueFrom);
   // membuat variabel output untuk menampung nilai yang akan di keluarkan ke html
-  let output = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
+  // let output = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah :</h3>`;
   
   //cegat terlebih terlebih dahulu jika di konvert dari basis yang sama
   if (from === to) {
-    output += valueFrom.toLocaleString('in-id');
+    // output += 
+    return valueFrom.toLocaleString('in-id');
   }
-  //desimal to
-  if (from === "desimal") {
-    if (to === "biner") {
-      output += valueFrom.toString(2).toLocaleString('in-ID');
+  // jika bukan hexadesimal maka rubah ke number
+  if (from !== "hexa") {
+    // rubah ke number
+    valueFrom = Number(valueFrom);
+   //desimal to
+    if (from === "desimal") {
+      if (to === "biner") {
+        output += valueFrom.toString(2).toLocaleString('in-ID');
+      }
+      if (to === "hexa") {
+        output += valueFrom.toString(16).toLocaleString('in-ID');
+      }
+      if(to === "octa") {
+        output += valueFrom.toString(8).toLocaleString('in-ID');
+      }
     }
-    if (to === "hexa") {
-      output += valueFrom.toString(16).toLocaleString('in-ID');
+    // biner to
+    if (from === "biner") {
+      if (to === "desimal") {
+        output += parseInt(valueFrom,2).toLocaleString('in-ID');
+      }
+      if (to === "hexa") {
+        let desimal = parseInt(valueFrom,2);
+        output += desimal.toString(16).toLocaleString('in-ID');
+      }
+      if (to === "octa") {
+        let desimal = parseInt(valueFrom,2);
+        output += desimal.toString(8).toLocaleString('in-ID');
+      }
     }
-    if(to === "octa") {
-      output += valueFrom.toString(8).toLocaleString('in-ID');
+    // octa to
+    if (from === "octa") {
+      if (to === "desimal") {
+        output += parseInt(valueFrom, 8);
+      }
+      if (to === "biner") {
+        let desimal = parseInt(valueFrom,8);
+        output += desimal.toString(2).toLocaleString('in-ID');
+      }
+      if (to === "hexa") {
+        let desimal = parseInt(valueFrom,8);
+        output += desimal.toString(16).toLocaleString('in-ID');
+      }
     }
-  }
-  // biner to
-  if (from === "biner") {
-    if (to === "desimal") {
-      output += parseInt(valueFrom,2).toLocaleString('in-ID');
-    }
-    if (to === "hexa") {
-      let desimal = parseInt(valueFrom,2);
-      output += desimal.toString(16).toLocaleString('in-ID');
-    }
-    if (to === "octa") {
-      let desimal = parseInt(valueFrom,2);
-      output += desimal.toString(8).toLocaleString('in-ID');
-    }
-  }
-  //hexa to
-  if (from === "hexa") {
-    if (to === "desimal") {
-      output += parseInt(valueFrom, 16);
-    }
-    if (to === "biner") {
-      let desimal = parseInt(valueFrom,16);
-      output += desimal.toString(2).toLocaleString('in-ID');
-    }
-    if (to === "octa") {
-      let desimal = parseInt(valueFrom,16);
-      output += desimal.toString(8).toLocaleString('in-ID');
-    }
-  }
-  // octa to
-  if (from === "octa") {
-    if (to === "desimal") {
-      output += parseInt(valueFrom, 8);
-    }
-    if (to === "biner") {
-      let desimal = parseInt(valueFrom,8);
-      output += desimal.toString(2).toLocaleString('in-ID');
-    }
-    if (to === "hexa") {
-      let desimal = parseInt(valueFrom,8);
-      output += desimal.toString(16).toLocaleString('in-ID');
-    }
+  } else {
+   //hexa to
+    if (from === "hexa") {
+      if (to === "desimal") {
+        output += parseInt(valueFrom, 16);
+      }
+      if (to === "biner") {
+        let desimal = parseInt(valueFrom,16);
+        output += desimal.toString(2).toLocaleString('in-ID');
+      }
+      if (to === "octa") {
+        let desimal = parseInt(valueFrom,16);
+        output += desimal.toString(8).toLocaleString('in-ID');
+      }
+    } 
   }
   return output
 }
@@ -86,6 +91,17 @@ function print() {
   let valueFrom = document.getElementById("valueFrom").value;
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
-  let value = convertNumber(valueFrom ,from ,to)
-  document.getElementById("output").innerHTML = `${value}`;
+  let value = convertNumber(valueFrom ,from ,to);
+  console.log(value);
+  if (value === NaN) {
+    if (from === "biner") {
+      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 2 yang terdiri dari: 0 dan 1 `;
+    } else if (from === "hexa"){
+      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 16 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, dan e `;
+    }else {
+      document.getElementById("output").innerHTML = `Maaf data yang anda input bukanlah bilangan ${from}, bilangan oktal hanya memiliki basis 8 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, dan 7 `;
+    }
+  }else{
+   document.getElementById("output").innerHTML = `${value}`; 
+  }
 }
