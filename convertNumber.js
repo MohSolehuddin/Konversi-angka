@@ -2,30 +2,34 @@
 function convertNumber(valueFrom, from, to){
   // karakter terlarang di setiap bilangan
   // hexadesimal
-  let notHexadecimalNumer = /g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z/;
-  let notBinerNumber = /2|3|4|5|6|7|8|9/;
-  let notOctalNumber = /8|9/;
+  let hexadecimalNumber = /0|1|2|3|4|5|6|7|8|9|a|b|c|d|e|f|A|B|C|D|E|F/;
+  let binerNumber = /0|1/;
+  let octalNumber = /0|1|2|3|4|5|6|7/;
+  // cegat jika input kosong 
+  if (valueFrom === "") {
+    return null;
+  }
   //cegat terlebih terlebih dahulu jika di konvert dari basis yang sama
   if (from === to) {
     if (from === "biner") {
-      if (notBinerNumber.test(valueFrom)) {
-        return false;
-      } else {
+      if (binerNumber.test(valueFrom)) {
         return valueFrom.toLocaleString('in-id');
+      } else {
+        return false;
       }
     }
     if (from === "hexa") {
-      if (notHexadecimalNumer.test(valueFrom)) {
-        return false;
-      } else {
+      if (hexadecimalNumber.test(valueFrom)) {
         return valueFrom.toLocaleString('in-id');
+      } else {
+        return false;
       }
     }
     if (from === "octa") {
-      if (notoctalNumber.test(valueFrom)) {
-        return false;
-      } else {
+      if (octalNumber.test(valueFrom)) {
         return valueFrom.toLocaleString('in-id');
+      } else {
+        return false;
       }
     }
     if (from === "desimal") {
@@ -54,9 +58,7 @@ function convertNumber(valueFrom, from, to){
     // biner to
     if (from === "biner") {
       // jika bukan biner maka keluarkan false
-      if (notBinerNumber.test(valueFrom)) {
-        return false;
-      }else{
+      if (binerNumber.test(valueFrom)) {
         if (to === "desimal") {
           return parseInt(valueFrom,2).toLocaleString('in-ID');
         }
@@ -70,13 +72,13 @@ function convertNumber(valueFrom, from, to){
           // output += 
           return desimal.toString(8).toLocaleString('in-ID');
         }
+      }else{
+        return false;
       }
     }
     // octa to
     if (from === "octa") {
-      if (notOctalNumber.test(valueFrom)) {
-        return false;
-      } else {
+      if (octalNumber.test(valueFrom)) {
         
         if (to === "desimal") {
           // output += 
@@ -92,15 +94,14 @@ function convertNumber(valueFrom, from, to){
           // output +=
           return desimal.toString(16).toLocaleString('in-ID');
         }
+      } else {
+        return false;
       }
     }
   } else {
    //hexa to
     if (from === "hexa") {
-      if (notHexadecimalNumer.test(valueFrom)) {
-        
-      } else {
-        
+      if (hexadecimalNumber.test(valueFrom)) {
         if (to === "desimal") {
           // output += 
           return parseInt(valueFrom, 16);
@@ -115,6 +116,8 @@ function convertNumber(valueFrom, from, to){
           // output += 
           return desimal.toString(8).toLocaleString('in-ID');
         }
+      } else {
+        return false;
       }
     } 
   }
@@ -146,7 +149,8 @@ function print() {
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
   let value = convertNumber(valueFrom ,from ,to);
-  console.log(value);
+  // cegat jika input kosong
+  
   if (value === false ) {
     if (from === "biner") {
       document.getElementById("output").innerHTML = `<h3 class="danger">Maaf data yang anda input bukanlah bilangan ${from}, bilangan ${from} hanya memiliki basis 2 yang terdiri dari: 0 dan 1 </h3>`;
@@ -155,6 +159,8 @@ function print() {
     }else {
       document.getElementById("output").innerHTML = `<h3 class="danger">Maaf data yang anda input bukanlah bilangan ${from}, bilangan ${from} hanya memiliki basis 8 yang terdiri dari: 0, 1, 2, 3, 4, 5, 6, dan 7 </h3>`;
     }
+  }else if (value === null) {
+    document.getElementById("output").innerHTML = `<h3>silahkan masukkan nilai ${from}</h3>`; 
   }else{
    document.getElementById("output").innerHTML = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah: </h3><span class="output">${value}</span>`; 
   }
