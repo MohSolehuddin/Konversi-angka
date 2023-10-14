@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserra:wght@500&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@ select{
   font-weight: bold;
   text-align: center;
   padding: 5px 15px;
+  border-radius: 5px;
 }
 #option{
   text-align: center;
@@ -19,6 +21,7 @@ select{
 body{
   margin: auto;
   background-color: rgba(0,0,0,.8);
+  height: 100vh;
 }
 .background{
   height: 300px;
@@ -78,8 +81,12 @@ button:focus{
   justify-content: center;
   flex-direction: column;
 }
+#output h3, span.output{
+  overflow-x: scroll;
+}
 h1{
   text-align: center;
+  margin-bottom: 5px;
 }
 p{
   font-size: 15px;
