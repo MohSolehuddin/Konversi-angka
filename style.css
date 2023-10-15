@@ -95,6 +95,11 @@ h3.danger{
   color: red;
 }
 
+@media (max-width: 699px){
+  select{
+    font-size: 13px;
+  }
+}
 @media (min-width: 700px){
   .background{
     height: 50vh;
