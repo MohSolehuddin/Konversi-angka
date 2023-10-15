@@ -29,7 +29,7 @@ body{
 }
 .container{
   border-radius: 25px;
-  min-height: 90vh;
+  min-height: 80vh;
   margin: auto 25px;
   margin-top: -250px;
   padding: 20px;
