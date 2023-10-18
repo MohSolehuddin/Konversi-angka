@@ -29,7 +29,7 @@ body{
 }
 .container{
   border-radius: 25px;
-  min-height: 80vh;
+  min-height: 70vh;
   margin: auto 25px;
   margin-top: -250px;
   padding: 20px;
@@ -94,10 +94,41 @@ p{
 h3.danger{
   color: red;
 }
-
+div.creator, div.creator div.medsos{
+  margin: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+div.creator{
+  text-align: center;
+  flex-direction: column;
+}
+div.creator .medsos a{
+  text-decoration: none;
+  font-size: 50px;
+}
+div.creator .medsos a img{
+  border-radius: 4px;
+  padding: 8px;
+  background-color: aqua;
+}
+div.creator h3, div.creator a{
+  color: aqua;
+}
+div.creator h3{
+  font-size: 150%;
+}
+div.creator .medsos a:active{
+  transition: all .5s;
+  color: rgb(0,102,104) ;
+  transform: scale(1.07) translateY(2px);
+}
 @media (max-width: 699px){
   select{
     font-size: 13px;
+  }
+  h1{
+    font-size: 95%;
   }
 }
 @media (min-width: 700px){
@@ -107,8 +138,8 @@ h3.danger{
   .container{
     max-width: 600px;
     margin: auto;
-    margin-top: -25vh;
-    min-height: 50vh;
+    margin-top: -150px;
+    min-height: 300px;
   }
   ::placeholder{
     font-size: 15px;

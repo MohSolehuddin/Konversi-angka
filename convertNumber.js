@@ -43,8 +43,8 @@ function convertNumber(valueFrom, from, to){
   
   // jika bukan hexadesimal maka rubah ke number
   if (from !== "hexa") {
-    // rubah ke number
-    valueFrom = Number(valueFrom);
+    // rubah ke big integer karena seblumnya jika angka terlalu besar maka di konversi ke angka ilmiah yang mana ketika dari biner mau ke yang lain maka menghasilkan false karena ada huruf e di dalamnya contoh 10e+23
+    valueFrom = BigInt(valueFrom);
    //desimal to
     if (from === "desimal") {
       if (to === "biner") {
@@ -67,7 +67,7 @@ function convertNumber(valueFrom, from, to){
           return parseInt(valueFrom,2).toLocaleString('in-ID');
         }
         if (to === "hexa") {
-          let desimal = parseInt(valueFrom,2);
+          let desimal = parseInt(valueFrom, 2);
           return desimal.toString(16).toLocaleString('in-ID');
         }
         if (to === "octa") {
@@ -142,6 +142,7 @@ function print() {
   let to = document.getElementById("to").value;
   //buat variabel value yang mendapat nilai dari function convertNumber
   let value = convertNumber(valueFrom ,from ,to);
+  console.log(value);
   // cegat jika input tidak sesuai dengan jenis bilangan
   if (value === false ) {
     // cegat untuk masing masing bilangan
@@ -159,6 +160,6 @@ function print() {
   }
   // jika user tidak menginput nilai yang salah maka keluarkan nilai
   else{
-   document.getElementById("output").innerHTML = `<h3>Hasil konversi dari ${from.toLocaleString()} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString()} adalah: </h3><span class="output">${value}</span>`; 
+   document.getElementById("output").innerHTML = `<h3>Hasil konversi dari ${from.toLocaleString("in-id")} dengan nilai ${valueFrom.toLocaleString()} ke ${to.toLocaleString('in-id')} adalah: </h3><span class="output">${value}</span>`; 
   }
 }
