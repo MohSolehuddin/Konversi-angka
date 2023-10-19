@@ -121,7 +121,7 @@ div.creator h3{
 div.creator .medsos a:active{
   transition: all .5s;
   color: rgb(0,102,104) ;
-  transform: scale(1.07) translateY(2px);
+  transform: scale(1.07) translateY(5px);
 }
 @media (max-width: 699px){
   select{
