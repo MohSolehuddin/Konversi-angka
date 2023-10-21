@@ -36,5 +36,49 @@ function decimalConvertTo(desimalValue, basis) {
   // keluarkan nilai result
   return result;
 }
+
+function convertToDecimal(value, basisBilangan) {
+  // variabel result yang akan menyimpan hasil konversi
+  let result= 0;
+  // variabel eksponden yang nantinya memangkatkan setiap basisBilangan
+  let eksponden = 0;
+  // rubah value ke string agar nantinya bisa mendapatkan index dari setiap huruf nya
+  value = `${value}`;
+  // variabel valueIndex yang akan menampung nilai dari setiap indexnya dan merubahnya ke Number
+  let valueIndex;
+  //perulangan yang nantinya akan melooping tiap digit dan melakukan oprasi bilangan di dalamnya
+  for (let i = value.length -1; 0 <= i; i--) {
+    //apakah nilai di digit tertentu bukan 0
+    if (value[i] != 0) {
+      // jika nilai yang di input adalah hexadesimal maka rubah ke angka sesuai bobot yang di miliki
+      if (value[i] === "a") {
+        valueIndex = 10;
+      }
+      else if(value[i] === "b"){
+        valueIndex = 11;
+      }
+      else if(value[i] === "c"){
+        valueIndex = 12;
+      }
+      else if(value[i] === "d"){
+        valueIndex = 13;
+      }
+      else if(value[i] === "e"){
+        valueIndex = 14;
+      }
+      else if(value[i] === "f"){
+        valueIndex = 15;
+      }else {
+        valueIndex = Number(value[i]);
+      }
+      // hitung result dan tambah dengan result sebelumnya
+      result = result + (valueIndex * (basisBilangan**eksponden));
+    }
+    eksponden++;
+  }
+  return result;
+}
+
 // percobaan
-console.log(decimalConvertTo(500, 16));
+console.log("conversi dari desimal: ",decimalConvertTo(100, 16));
+console.log("conversi ke desimal: ",convertToDecimal(64,16));
